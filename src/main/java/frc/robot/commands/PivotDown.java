@@ -4,27 +4,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.DriveTrain;
+import frc.robot.Constants;
+import frc.robot.subsystems.Pivot;
 
-public class ArcadeDrive extends Command {
-  /** Creates a new ArcadeDrive. */
-
-  //Defining DriveTrain
-  DriveTrain dt; 
-
-  //Defining Joysticks
-  Joystick l_joystick;
-  Joystick r_joystick;
-
-  public ArcadeDrive(DriveTrain dt_import, Joystick l_joystick_import, Joystick r_joystick_import) {
+public class PivotDown extends Command {
+  /** Creates a new PivotDown. */
+  Pivot pivot;
+  public PivotDown(Pivot pivot) {
+    this.pivot = pivot;
     // Use addRequirements() here to declare subsystem dependencies.
-    //Setting the this.object
-    this.dt = dt_import;
-    addRequirements(this.dt);
-    this.l_joystick = l_joystick_import;
-    this.r_joystick = r_joystick_import;
+    addRequirements(this.pivot);
   }
 
   // Called when the command is initially scheduled.
@@ -34,13 +24,14 @@ public class ArcadeDrive extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    //Executing the function
-    this.dt.arcade_drive(this.l_joystick, this.r_joystick);
+    this.pivot.pivot_move(Constants.pivot_speed.pivot_down);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    this.pivot.pivot_move(0);
+  }
 
   // Returns true when the command should end.
   @Override

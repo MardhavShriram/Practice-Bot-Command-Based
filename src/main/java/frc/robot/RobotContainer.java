@@ -10,9 +10,11 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
+import frc.robot.commands.PivotDown;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Pivot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -29,14 +31,21 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
+  //Subsystems
   private final DriveTrain dt = new DriveTrain();
   private final Intake intake = new Intake();
+  private final Pivot pivot = new Pivot();
 
+  //Joysticks
   private final Joystick l_joystick = new Joystick(1);
   private final Joystick r_joystick = new Joystick(2);
 
+  //Joystick Buttons
   private final JoystickButton intake_in = new JoystickButton(l_joystick, 1);
   private final JoystickButton intake_out = new JoystickButton(l_joystick, 2);
+  private final JoystickButton pivot_up = new JoystickButton(l_joystick, 3);
+  private final JoystickButton pivot_down = new JoystickButton(l_joystick, 4);
+
 
 
 
@@ -71,6 +80,9 @@ public class RobotContainer {
 
     intake_in.whileTrue(new IntakeIn(intake));
     intake_out.whileTrue(new IntakeOut(intake));
+
+    pivot_up.whileTrue(new PivotDown(pivot));
+    pivot_down.whileTrue(new PivotDown(pivot));
 
   }
 

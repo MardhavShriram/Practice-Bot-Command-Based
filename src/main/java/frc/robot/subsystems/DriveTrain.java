@@ -14,13 +14,13 @@ import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
-  //Announcing the Drivetrain Motors
+  //Drivetrain Motors
   CANSparkMax f_right;
   CANSparkMax b_right;
   CANSparkMax f_left;
   CANSparkMax b_left;
 
-  //Announcing Joysticks
+  //Joysticks
   Joystick l_joystick;
   Joystick r_joystick;
 

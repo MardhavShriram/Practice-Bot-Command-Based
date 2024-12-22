@@ -16,11 +16,33 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
-
+//Drivetrain IDs
 public final class dt_IDs {
   public static final int r_front_id = 1;
   public static final int l_front_id = 2;
   public static final int r_back_id = 3;
   public static final int l_back_id = 4;
+}
+//Intake IDs
+public final class intake_IDs {
+  public static final int l_intake_id = 5;
+  public static final int r_intake_id = 6;
+}
+//Intake Speed
+public final class Intake_speed{
+public static final double intake_in_speed = .5;
+public static final double intake_out_speed = -.8;
+
+}
+//Pivot IDs
+public final class pivot_ids{
+  public static final int l_pivot_id = 7;
+  public static final int r_pivot_id = 8;
+}
+//Pivot Speed
+public final class pivot_speed {
+  public static final double pivot_up = .5;
+  public static final double pivot_down = -.5;
+
 }
 }
