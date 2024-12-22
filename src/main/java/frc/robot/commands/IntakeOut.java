@@ -5,11 +5,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
+import frc.robot.subsystems.Intake;
 
 public class IntakeOut extends Command {
   /** Creates a new IntakeOut. */
-  public IntakeOut() {
+
+  //Creating Subsystem
+  Intake intake;
+  public IntakeOut(Intake intake) {
+    this.intake = intake;
     // Use addRequirements() here to declare subsystem dependencies.
+    addRequirements(this.intake);
   }
 
   // Called when the command is initially scheduled.
@@ -18,7 +25,9 @@ public class IntakeOut extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    this.intake.intake_spin(Constants.Intake_speed.intake_out_speed);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
