@@ -11,10 +11,13 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.commands.PivotDown;
+import frc.robot.commands.PivotUp;
+import frc.robot.commands.ShootOut;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Pivot;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -35,6 +38,7 @@ public class RobotContainer {
   private final DriveTrain dt = new DriveTrain();
   private final Intake intake = new Intake();
   private final Pivot pivot = new Pivot();
+  private final Shooter shooter = new Shooter();
 
   //Joysticks
   private final Joystick l_joystick = new Joystick(1);
@@ -45,6 +49,7 @@ public class RobotContainer {
   private final JoystickButton intake_out = new JoystickButton(l_joystick, 2);
   private final JoystickButton pivot_up = new JoystickButton(l_joystick, 3);
   private final JoystickButton pivot_down = new JoystickButton(l_joystick, 4);
+  private final JoystickButton shoot = new JoystickButton(l_joystick, 5);
 
 
 
@@ -81,8 +86,12 @@ public class RobotContainer {
     intake_in.whileTrue(new IntakeIn(intake));
     intake_out.whileTrue(new IntakeOut(intake));
 
-    pivot_up.whileTrue(new PivotDown(pivot));
+    pivot_up.whileTrue(new PivotUp(pivot));
     pivot_down.whileTrue(new PivotDown(pivot));
+
+    shoot.whileTrue(new ShootOut(shooter));
+
+
 
   }
 

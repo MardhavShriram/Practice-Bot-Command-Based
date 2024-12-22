@@ -43,6 +43,15 @@ public final class pivot_ids{
 public final class pivot_speed {
   public static final double pivot_up = .5;
   public static final double pivot_down = -.5;
+}
+//Shooter IDs
+public final class shooter_IDs{
+  public static final int l_shooter_ID = 9;
+  public static final int r_shooter_ID = 10;
+}
 
+//Shooter Speed
+public static class shooter_speed {
+  public static final double shoot_out = .5;
 }
 }
