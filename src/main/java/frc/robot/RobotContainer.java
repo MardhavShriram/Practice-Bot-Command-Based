@@ -41,8 +41,8 @@ public class RobotContainer {
   private final Shooter shooter = new Shooter();
 
   //Joysticks
-  private final Joystick l_joystick = new Joystick(1);
-  private final Joystick r_joystick = new Joystick(2);
+  private final Joystick l_joystick = new Joystick(0);
+  private final Joystick r_joystick = new Joystick(1);
 
   //Joystick Buttons
   private final JoystickButton intake_in = new JoystickButton(l_joystick, 1);

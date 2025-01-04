@@ -20,17 +20,11 @@ public class DriveTrain extends SubsystemBase {
   CANSparkMax f_left;
   CANSparkMax b_left;
 
-  //Joysticks
-  Joystick l_joystick;
-  Joystick r_joystick;
 
   //Directional variables
   double ly;
   double rx;
   public DriveTrain() {
-  //Defining the Joysticks with Ports
-  l_joystick = new Joystick(1);
-  r_joystick = new Joystick(2);
 
   //Defining the Drivetrain Motors
   f_right = new CANSparkMax(Constants.dt_IDs.r_front_id, MotorType.kBrushless);
